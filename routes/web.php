@@ -21,15 +21,4 @@ Route::get('/teste', function() {
     echo "Teste";
 });
 
-Route::get('/carros', function() {
-    
-    $veiculos = ['Corsa', 'Celta', 'Uno', 'Fiesta'];
-    
-    $resultado = '';
-    foreach ($veiculos as $veiculo) {
-        $resultado .= "<p>$veiculo<p>";
-    }
-    return $resultado;
-
-});
-
+Route::get('/carros', 'VeiculosController@listar');
