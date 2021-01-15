@@ -24,5 +24,6 @@ Route::get('/teste', function() {
 
 // Veículos
 Route::get('/veiculos', 'ctrlVeiculos@listar');                 //Lista veículos
-Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');    //Aciciona veículos
+Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');    //Adiciona veículos
+Route::post('/veiculos/salvar', 'ctrlVeiculos@salvar');         //Salva veículos adicionados
 

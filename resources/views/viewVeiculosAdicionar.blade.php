@@ -9,10 +9,24 @@
 @endsection
 
 @section('corpo')
-    <form method='POST'>
+    <form method='post' action='/veiculos/salvar'>
+        @csrf <!-- Necessário para um POST no Laravel --> 
         <div class='form-group'>
-            <label for='nomeVeiculo'>Nome do veículo:</label>
-            <input type='text' class='form-control' name='nomeVeiculo' id='nomeVeiculo'>
+            <label for='nome'>Nome</label>
+            <input type='text' name='nome' id='nome' class='form-control'>
+            
+            <label for='fabricante'>Fabricante</label>
+            <input type='text' name='fabricante' id='fabricante' class='form-control'>
+
+            <label for='ano'>Ano</label>
+            <input type='text' name='ano' id='ano' class='form-control'>
+
+            <label for='placa'>Placa</label>
+            <input type='text' name='placa' id='placa' class='form-control'>
+
+            <label for='data_compra'>Data de Compra</label>
+            <input type='text' name='data_compra' id='data_compra' class='form-control'>
+
         </div>
         <button class='btn btn-primary'> Salvar </button>
     </form>

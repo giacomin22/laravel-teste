@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Veiculo;
+
 class ctrlVeiculos extends Controller {
 
     // Listar veículos
@@ -14,6 +17,29 @@ class ctrlVeiculos extends Controller {
     public function adicionar ()  {
         return view('viewVeiculosAdicionar'); // Direciona para a view
     }
+
+    // Salvar veículos
+    public function salvar(Request $request) {
+
+        // $nome = $request->get('nome'); // Pode ser simplificado conforme a linha abaixo
+        $nome = $request->nome; // Onde 'nome' é o nome do input do formulário da view
+        $fabricante = $request->fabricante;
+        $ano = $request->ano;
+        $placa = $request->placa;
+        $data_compra = $request->data_compra;
+
+        $veiculo = new Veiculo();
+        
+        $veiculo->nome = $nome;
+        $veiculo->fabricante = $fabricante;
+        $veiculo->ano = $ano;
+        $veiculo->placa = $placa;
+        $veiculo->data_compra = $data_compra;
+        
+        $veiculo->save();
+
+    }
+
 }
 
 ?>
