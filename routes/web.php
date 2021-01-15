@@ -21,4 +21,6 @@ Route::get('/teste', function() {
     echo "Teste";
 });
 
-Route::get('/carros', 'VeiculosController@listar');
+Route::get('/veiculos', 'ctrlVeiculos@listar');
+Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');
+
