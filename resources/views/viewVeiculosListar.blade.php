@@ -11,13 +11,22 @@
 @section('corpo')
     <a href='/veiculos/adicionar' class='btn btn-primary mb-2'>Adicionar</a>
         <ul class='list-group'>
-            <?php
+            
+            <!-- Substituído pelo código abaixo (formato blade) --
+            <\?php
             $resultado = ''; 
             foreach ($veiculos as $veiculo) {
-                $resultado .= "<li class='list-group-item'> $veiculo </li>";
+                $resultado .= "<li class='list-group-item'> $veiculo->nome </li>";
             }
             echo $resultado;
             ?>
+            -->
+            
+            @foreach ($veiculos as $veiculo)
+                <li class='list-group-item'> {{ $veiculo->nome }} </li>
+            @endforeach
+            
+
         </ul>
 @endsection
 

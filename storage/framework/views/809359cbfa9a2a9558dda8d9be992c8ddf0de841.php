@@ -8,7 +8,7 @@
 
 <?php $__env->startSection('corpo'); ?>
     <form method='post' action='/veiculos/salvar'>
-        <?php echo csrf_field(); ?> <!-- Necessário para um POST no Laravel -->
+        <?php echo csrf_field(); ?> <!-- Necessário para um POST no Laravel --> 
         <div class='form-group'>
             <label for='nome'>Nome</label>
             <input type='text' name='nome' id='nome' class='form-control'>
