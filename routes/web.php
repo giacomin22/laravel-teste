@@ -17,10 +17,12 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+// Teste simples
 Route::get('/teste', function() {
     echo "Teste";
 });
 
-Route::get('/veiculos', 'ctrlVeiculos@listar');
-Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');
+// Veículos
+Route::get('/veiculos', 'ctrlVeiculos@listar');                 //Lista veículos
+Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');    //Aciciona veículos
 

@@ -13,6 +13,5 @@
             @yield('corpo')
         </div>
     </body>
-    
 </html>
 

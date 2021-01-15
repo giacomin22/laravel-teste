@@ -1,9 +1,8 @@
-@extends('template')
+@extends('viewTemplate')
 
 @section('cabecalho')
     Veículos
 @endsection
-
 
 @section('titulo')
     Veículos

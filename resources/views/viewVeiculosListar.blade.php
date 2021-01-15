@@ -4,7 +4,6 @@
     Veículos
 @endsection
 
-
 @section('titulo')
     Veículos
 @endsection
