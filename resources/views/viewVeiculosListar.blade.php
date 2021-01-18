@@ -31,17 +31,20 @@
             
             @foreach ($veiculos as $veiculo)
                     <li class='list-group-item d-flex justify-content-between align-itens-center'> {{ $veiculo->nome }} 
+                        <span class='d-flex'>
 
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo">
-                            <i class="fas fa-eye"></i>
-                        </button>
-
-                        <form method='post' action="/veiculos/remover/{{ $veiculo->id }}" onsubmit="return confirm('Remover {{ $veiculo->nome }}?')">
-                            @csrf
-                            <button class='btn btn-danger btn-sm'>
-                                <i class="far fa-trash-alt"></i>                                
+                            <button class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="#modalExemplo">
+                                <i class="fas fa-eye"></i>
                             </button>
-                        </form>    
+
+                            <form method='post' action="/veiculos/remover/{{ $veiculo->id }}" onsubmit="return confirm('Remover {{ $veiculo->nome }}?')">
+                                @csrf
+                                <button class='btn btn-danger btn-sm'>
+                                    <i class="far fa-trash-alt"></i>                                
+                                </button>
+                            </form>    
+
+                        </span>
                         
                         
                     </li>
