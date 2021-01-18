@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RequestVeiculos;
 use Illuminate\Http\Request;
 use App\Veiculo;
 
@@ -22,7 +23,11 @@ class ctrlVeiculos extends Controller {
     }
 
     // Salvar veículos
-    public function salvar(Request $request) {
+    //public function salvar(Request $request) {                        // Era usado antes de implementar o RequestVeiculos
+    public function salvar(RequestVeiculos $request) {
+
+        // Exemplo de validação por campo (substituído por um formRequest)
+        // $request->validate(['nome' => 'required|min:3']);
 
         // $nome = $request->get('nome');                               // Pode ser simplificado conforme a linha abaixo
         $nome = $request->nome;                                         // Onde 'nome' é o nome do input do formulário da view
@@ -62,6 +67,9 @@ class ctrlVeiculos extends Controller {
         
         return redirect('/veiculos');
     }
+
+    //Editar Veículos
+    public function editar(Request $request) {}
 
 }
 

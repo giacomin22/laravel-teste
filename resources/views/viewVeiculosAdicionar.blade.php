@@ -9,6 +9,18 @@
 @endsection
 
 @section('corpo')
+    
+    <!-- Alerta de erros no preenchimento dos campos -->
+    @if ($errors->any())
+        <div class='alert alert-danger'>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <form method='post' action='/veiculos/salvar'>
         @csrf <!-- Necessário para um POST no Laravel --> 
         <div class='form-group'>

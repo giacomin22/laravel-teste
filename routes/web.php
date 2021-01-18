@@ -27,4 +27,4 @@ Route::get('/veiculos', 'ctrlVeiculos@listar');                 //Lista veículo
 Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');    //Adiciona veículos
 Route::post('/veiculos/salvar', 'ctrlVeiculos@salvar');         //Salva veículos adicionados
 Route::post('/veiculos/remover/{id}', 'ctrlVeiculos@remover');  //Remove veículo
-
+Route::post('/veiculos/editar/{id}', 'ctrlVeiculos@editar');     //Editar veículo
