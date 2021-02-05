@@ -1,20 +1,19 @@
-@extends('viewTemplate')
-
-@section('cabecalho')
+<?php $__env->startSection('cabecalho'); ?>
     Veículos
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('titulo')
+<?php $__env->startSection('titulo'); ?>
     Veículos
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('corpo')
+<?php $__env->startSection('corpo'); ?>
 
-    @if(!empty($msg))   <!-- Se $msg não estiver vazia, exibe toda div (com conteúdo de $msg) -->
+    <?php if(!empty($msg)): ?>   <!-- Se $msg não estiver vazia, exibe toda div (com conteúdo de $msg) -->
     <div class='alert alert-success'>
-        {{ $msg }}
+        <?php echo e($msg); ?>
+
     </div>
-    @endif
+    <?php endif; ?>
 
     <a href='/veiculos/adicionar' class='btn btn-success mb-2'>Adicionar</a>
         <ul class='list-group'>
@@ -29,23 +28,23 @@
             ?>
             -->
             
-            @foreach ($veiculos as $veiculo)
-                    <li class='list-group-item d-flex justify-content-between align-itens-center'> {{ $veiculo->nome }} 
+            <?php $__currentLoopData = $veiculos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $veiculo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <li class='list-group-item d-flex justify-content-between align-itens-center'> <?php echo e($veiculo->nome); ?> 
                         <span class='d-flex'>
 
                                 <button class="btn btn-primary btn-sm mr-1">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             
-                            <form method='post' action="/veiculos/editar/{{ $veiculo->id }}">
-                                @csrf
+                            <form method='post' action="/veiculos/editar/<?php echo e($veiculo->id); ?>">
+                                <?php echo csrf_field(); ?>
                                 <button class='btn btn-warning btn-sm mr-1'>
                                     <i class="far fa-edit"></i>                                
                                 </button>
                             </form>    
                             
-                            <form method='post' action="/veiculos/remover/{{ $veiculo->id }}" onsubmit="return confirm('Remover {{ $veiculo->nome }}?')">
-                                @csrf
+                            <form method='post' action="/veiculos/remover/<?php echo e($veiculo->id); ?>" onsubmit="return confirm('Remover <?php echo e($veiculo->nome); ?>?')">
+                                <?php echo csrf_field(); ?>
                                 <button class='btn btn-danger btn-sm'>
                                     <i class="far fa-trash-alt"></i>                                
                                 </button>
@@ -55,10 +54,12 @@
                         
                         
                     </li>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
+
+<?php echo $__env->make('viewTemplate', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/giacomin/www/laravel-teste/resources/views//viewVeiculosListar.blade.php ENDPATH**/ ?>

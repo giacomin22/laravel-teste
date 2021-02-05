@@ -17,14 +17,18 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-// Teste simples
-Route::get('/teste', function() {
-    echo "Teste";
-});
-
 // Veículos
+Route::get('/', 'ctrlVeiculos@listar');                 //Lista veículos
 Route::get('/veiculos', 'ctrlVeiculos@listar');                 //Lista veículos
 Route::get('/veiculos/adicionar', 'ctrlVeiculos@adicionar');    //Adiciona veículos
 Route::post('/veiculos/salvar', 'ctrlVeiculos@salvar');         //Salva veículos adicionados
 Route::post('/veiculos/remover/{id}', 'ctrlVeiculos@remover');  //Remove veículo
-Route::post('/veiculos/editar/{id}', 'ctrlVeiculos@editar');     //Editar veículo
+Route::post('/veiculos/editar/{id}', 'ctrlVeiculos@editar');    //Edita veículo
+Route::post('/veiculos/atualizar', 'ctrlVeiculos@atualizar');    //Edita veículo
+
+
+
+// Teste simples
+Route::get('/teste', function() {
+    echo "Teste";
+});

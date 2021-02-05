@@ -21,28 +21,22 @@
         </div>
     @endif
     
-    <form method='post' action='/veiculos/salvar'>
-        @csrf <!-- Necessário para um POST no Laravel --> 
+    <form method='post' action='/veiculos/atualizar'>
+        @csrf
         <div class='form-group'>
+        
+            <input type='text' name='id' id='id' class='form-control' value='{{ $veiculo->id }}' hidden>
             <label for='nome'>Nome</label>
-            <input type='text' name='nome' id='nome' class='form-control'>
+            <input type='text' name='nome' id='nome' class='form-control' value='{{ $veiculo->nome }}'>
             <label for='fabricante'>Fabricante</label>
             <select id="fabricante" name="fabricante" class='form-control'>
-            <option value="nenhum"></option>
-            @foreach($fabricantes as $fabricante)
-                 <option value="{{ $fabricante->nome }}">{{ $fabricante->nome }}</option>
-            @endforeach
+                <option value="{{ $veiculo->fabricante }}">{{ $veiculo->fabricante }}</option>
+                @foreach($fabricantes as $fabricante)
+                    <option value="{{ $fabricante->nome }}">{{ $fabricante->nome }}</option>
+                @endforeach
             </select>
             <label for='ano'>Ano</label>
-            <input type='text' name='ano' id='ano' class='form-control'>
-
-            <!-- Removidos temporariamente
-            <label for='placa'>Placa</label>
-            <input type='text' name='placa' id='placa' class='form-control'>
-
-            <label for='data_compra'>Data de Compra</label>
-            <input type='text' name='data_compra' id='data_compra' class='form-control'>
-            -->
+            <input type='text' name='ano' id='ano' class='form-control' value='{{ $veiculo->ano }}'>
 
         </div>
         <button class='btn btn-primary'> Salvar </button>
